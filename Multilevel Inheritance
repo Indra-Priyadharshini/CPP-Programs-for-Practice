@@ -1,0 +1,70 @@
+/*Design a class hierarchy as shown below. Your C++ program should print the given expected output.
+
+Vehicle (Regno,Region, ReadVehicle(), printVehicle())
+
+FourWheeler (Type, ReadData(), printData())
+
+Car (Name, Manufacturer, readCar(),printCar())
+
+FourWheeler class must be derived fromVehicle class and Car class must be derived from FourWheeler class
+
+Define the data members in private section, member functions in public section. Define the main() to create objects and call relevant function*/
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+class Vehicle
+{
+    string Regno;
+    string Region;
+    public:
+    Vehicle(){
+        cout<<"Constructor in Super Class of all"<<endl;
+    }
+    void readVehicle(){
+        cin>>Regno>>Region;
+    }
+    void printVehicle(){
+        cout<<"Regno: "<<Regno<<endl<<"Region: "<<Region<<endl;
+    }
+};
+class FourWheeler : public Vehicle
+{
+    string type;
+    public:
+    FourWheeler(){
+        cout<<"Constructor in Four Wheeler class"<<endl;
+    }
+    void readData(){
+        cin>>type;
+    }
+    void printData(){
+        cout<<"Type: "<<type<<endl;
+    }
+};
+class Car : public FourWheeler
+{
+    string name,manufacturer;
+    public:
+    Car(){
+        cout<<"Constructor in Car Class"<<endl;
+    }
+    void readCar(){
+        cin>>name>>manufacturer;
+    }
+    void printCar(){
+        cout<<"Name: "<<name<<endl<<"Manufacturer: "<<manufacturer<<endl;
+    }
+};
+int main(){
+    Car C1;
+    C1.readVehicle();
+    C1.printVehicle();
+    C1.readData();
+    C1.printData();
+    C1.readCar();
+    C1.printCar();
+
+    return 0;
+}
