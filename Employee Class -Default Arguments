@@ -1,0 +1,64 @@
+/*Create a class called Employee in C++. Define the class private data members for storing necessary attributes of Employee such as Eno, name, designation, age, etc., Define necessary member functions to read and print the attributes. Define a public member function calculateGross() and overload it in the following manner.
+
+1) calculateGross(basic): If only basic salary is provided as argument, calculate the gross salary as basic+5000.
+
+ 2) calculateGross(basic, HRA): If basic and HRA are provided as arguments, calculate the gross salary as basic+5000+HRA
+
+ 3) calculateGross(basic, HRA, DA): If basic, HRA and DA are provided as arguments, calculate the gross salary as basic+5000+DA+HRA
+
+4) calculateGross(basic, HRA, DA,TA): If basic, HRA, DA and TA are provided as arguments, calculate the gross salary as basic+5000+DA+HRA+TA.
+
+5) calculateGross(basic, HRA, DA,TA,PF): If basic, HRA, DA and TA are provided as arguments, calculate the gross salary as basic+5000+DA+HRA+TA-PF.
+
+Define the main function and call all the member functions by providing necessary arguments.*/
+
+#include<iostream>
+using namespace std;
+class employee
+{
+  string n;
+  int age;
+  string des;
+  int eno;
+  int basic;
+  int hra;
+  int da;
+  int ta;
+  int pf;
+  public:
+  employee()
+  {
+      eno=0;
+      age =0;
+      n=" ";
+      des=" ";
+  }
+  void input()
+  {
+      cin>>basic;
+      cin>>hra;
+      cin>>da;
+      cin>>ta;
+      cin>>pf;
+      
+      
+  }
+  void calc()
+  {
+      basic=basic+5000;
+      cout<<"Basic: "<<basic<<endl;
+      cout<<"Basic+HRA: "<<basic+hra<<endl;
+      cout<<"Basic+HRA+DA: "<<basic+hra+da<<endl;
+      cout<<"Basic+HRA+DA+TA: "<<basic+hra+da+ta<<endl;
+      cout<<"Basic+HRA+DA+TA-PF: "<<basic+hra+da+ta-pf<<endl;
+  }
+};
+
+int main()
+{
+    employee a;
+    a.input();
+    a.calc();
+    
+    return 0;
+}
