@@ -1,0 +1,69 @@
+/*Create a class called Faculty in C++ with attributes - subject, and mode, member functions to store and display the details of the faculty.
+
+Create a class called Student with attributes – school and regno, member functions to store and display the details of the student. 
+
+Derive a class called ResearchAsst from Faculty and Student, with attributes: domain, projects and name. Include the member functions to store and display the details.
+
+Define main function to create derived class object and call the required functions.
+
+Sample Output:
+
+Subject Handled: StructuredProgramming
+
+Mode: Online
+
+School: SCOPE
+
+Register Number:1000
+
+Research Domain: CloudComputing
+
+Projects Done: 2
+
+Name: XYZ*/
+
+#include<iostream>
+using namespace std;
+
+class Faculty
+{
+    string subject,mode;
+    public:
+        Faculty(){
+            cin>>subject>>mode;
+        }
+        void print_details1(){
+            cout<<"Subject Handled: "<<subject<<endl<<"Mode: "<<mode<<endl;
+        }
+};
+class Student
+{
+    string school;
+    int reg_no;
+    public:
+        Student(){
+            cin>>school>>reg_no;
+        }
+        void print_details2(){
+            cout<<"School: "<<school<<endl<<"Register Number:"<<reg_no<<endl;
+        }
+};
+class ResearchAsst : public Faculty , public Student
+{
+    string domain, name;
+    int projects;
+    public:
+        ResearchAsst(){
+            cin>>domain>>projects>>name;
+        }
+        void print_details(){
+            print_details1();
+            print_details2();
+            cout<<"Research Domain: "<<domain<<endl<<"Projects Done: "<<projects<<endl<<"Name: "<<name<<endl;
+        }
+};
+int main(){
+    ResearchAsst res;
+    res.print_details();
+    return 0;
+}
