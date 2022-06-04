@@ -1,0 +1,53 @@
+/*Create a class called Employee in C++ with the attributes Eno, Ename, Designation and Salary. 
+Include constructors, member functions to read and display the values for attributes. 
+Inherit a class called Manager from Employee class in public mode with the attributes totalemp, totalsupervisors. 
+Include constructors, member functions to read and display the values for attributes of the Manager class. 
+Create an object for the child class and call all the member functions to read and print the details of an employee who is a Manager.
+Sample Output:
+Eno: 100
+Ename: ABCDEF
+Designation: Manager
+Salary: 80000
+Total employees in the dept: 150
+Total supervisors in the dept: 15*/
+
+#include<iostream>
+using namespace std;
+class Employee
+{
+    int Eno, salary;
+    string Ename, Designation; 
+    public:
+    Employee(){
+        
+    }
+    void readDetails1(){
+        cin>>Eno>>Ename>>Designation>>salary;
+    }
+    void printDetails1(){
+        cout<<"Eno: "<<Eno<<endl<<"Ename: "<<Ename<<endl<<"Designation: "<<Designation<<endl<<"Salary: "<<salary<<endl;
+    }
+};
+class Manager : public Employee
+{
+    int totalemp, totalsupervisors;
+    public:
+    Manager(){
+        
+    }
+    void readDetails2(){
+        cin>>totalemp>>totalsupervisors;
+    }
+    void printDetails2(){
+        cout<<"Total employees in the dept: "<<totalemp<<endl<<"Total supervisors in the dept: "<<totalsupervisors<<endl;
+    }
+    
+};
+int main(){
+    Manager M1;
+    M1.readDetails1();
+    M1.readDetails2();
+    M1.printDetails1();
+    M1.printDetails2();
+    return 0;
+}
