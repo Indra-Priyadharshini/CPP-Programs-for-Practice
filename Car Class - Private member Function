@@ -1,0 +1,55 @@
+/*Create a  class called Car with the following specifications in C++:-
+
+Private Data Members: Colour, Name, Manufacturer, Mileage, Yearmodel
+
+Private Member Function: display_Line() to print a line of  ‘*’ symbols.
+
+Public Member Functions: default constructor, Parameterized Constructor, readCar(), setCar(string,string,string,float,int), printCar()
+
+Create the following objects in main():
+
+ object C1, call readCar() and printCar() functions
+
+object C2, call setCar() with the values(Black,i10,Hyundai,20.36,2012) and printCar() functions.
+
+Object C3 and call printCar() function.
+
+Call display_Line() after the details of each car is printed.*/
+
+#include<iostream>
+using namespace std;
+class Car
+{
+    string colour,name,manufacturer;
+    int mileage,yearmodel;
+    void display_line(){
+        cout<<"*****"<<endl;
+    }
+    public:
+        Car(){
+            colour = "Silver";
+            name = "Swift";
+            manufacturer = "Maruti";
+            mileage = 15;
+            yearmodel = 2020;
+        }
+        void readCar(){
+            cin>>colour>>name>>manufacturer>>mileage>>yearmodel;
+        }
+        void setCar(string a,string b,string c,float d,int e){
+            colour = a;name = b;manufacturer = c;mileage = d;yearmodel = e;
+        }
+        void printCar(){
+            cout<<"Color: "<<colour<<endl<<"Name: "<<name<<endl<<"Manufacturer: "<<manufacturer<<endl<<"Mileage: "<<mileage<<endl<<"Year: "<<yearmodel<<endl;
+            display_line();
+        }
+};
+int main(){
+    Car C1,C2,C3;
+    C1.readCar();
+    C1.printCar();
+    C2.setCar("Black","i10","Hyundai",20.36,2012);
+    C2.printCar();
+    C3.printCar();
+    return 0;
+}
