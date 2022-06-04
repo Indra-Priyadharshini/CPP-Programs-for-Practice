@@ -1,0 +1,81 @@
+/*Design a Class named Box in C++ with following specifications.
+
+Private Data Members: Length, Breadth, Height, Color
+
+Static Data Member: Box_Count – to count the number of Box Objects
+
+Constructors: Box() - Assign default values to data members.
+
+Public Member Functions: readData() - to read values for object, calcVolume() - to calculate and display the volume of cuboid box, calcArea() – to calculate the area of cuboid box, changeColor()- Read the new colour from user and assign it to the Color data member
+
+Increment the Box_Count value for each object created.
+
+Static Member Function: display() - to display the Box_Count value.
+
+Friend Function: printBox() - Pass the object as argument and print the length, breath and height of the box.
+
+Objects:
+
+B1, B2, B3 - Call the readData(), calcVolume() and printBox(), for each object, caand finally call display().*/
+
+
+#include<iostream>
+using namespace std;
+class Box 
+{
+    int height;
+    int length;
+    int breadth;
+    string color;
+    static int Box_count;
+    public:
+    Box(){
+        length = 0;
+        breadth = 0;
+        height = 0;
+        Box_count++;
+    }
+    void readData(){
+        cin>>length>>breadth>>height>>color;
+    }
+    void changeColor(){
+        string a;
+        cin>>a;
+        color = a;
+    }
+    void calcVolume(){
+        cout<<"Volume:"<<length*breadth*height<<endl;
+    }
+    void calcArea(){
+        cout<<"Area:"<<2*(length*breadth+breadth*height+length*height)<<endl;
+    }
+    void printBox(Box &b){
+        cout<<"Length:"<<b.length<<endl;
+        cout<<"Breadth:"<<b.breadth<<endl;
+        cout<<"Height:"<<b.height<<endl;
+        cout<<"Color:"<<b.color<<endl;
+    }
+    static int display(){
+        cout<<"Number of Objects:"<<Box_count<<endl;
+    }
+};
+int Box :: Box_count = 0;
+int main(){
+    Box B1,B2,B3;
+    B1.readData();
+    B1.printBox(B1);
+    B1.calcVolume();
+    B1.calcArea();
+
+    B2.readData();
+    B2.printBox(B2);
+    B2.calcVolume();
+    B2.calcArea();
+
+    B3.readData();
+    B3.printBox(B3);
+    B3.calcVolume();
+    B3.calcArea();
+    Box::display();
+    return 0;
+}
